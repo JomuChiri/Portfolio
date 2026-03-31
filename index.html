@@ -70,22 +70,22 @@
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-     <!-- 1. Lab Setup - Improved with your new diagram -->
+<!-- 1. Lab Setup - Compact Card -->
 <a href="lab-setup/lab-architecture.md" class="group bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition-all duration-300">
   <div class="p-8">
     <div class="uppercase text-xs font-bold tracking-widest mb-3">Lab Setup</div>
-    <h3 class="text-2xl font-semibold mb-6">SOC Lab Network Topology</h3>
+    <h3 class="text-2xl font-semibold mb-4">SOC Lab Network Topology</h3>
     
-    <!-- Your new diagram -->
     <img src="images/soc-lab-network.png" 
-         alt="SOC Lab Network Topology - pfSense firewall, Wazuh, AD DC01, Kali Linux, Flare-VM, Metasploitable" 
-         class="w-full rounded-2xl shadow-2xl mb-6 group-hover:scale-105 transition">
+         alt="SOC Lab Topology" 
+         class="w-full rounded-2xl shadow-2xl mb-6 h-48 object-cover">
     
-    <p class="text-white/80 text-sm leading-relaxed">
-      Isolated home SOC environment with pfSense firewall, Wazuh manager, Active Directory (DC01), 
-      Kali Linux attacker machine, Flare-VM for malware analysis, and Metasploitable. 
-      Includes proper network segmentation, firewall rules, and controlled traffic flows for safe attack simulation and detection testing.
+    <p class="text-white/80 text-sm">
+      Fully segmented home SOC lab with pfSense firewall, Wazuh manager, Active Directory, 
+      Kali Linux, Flare-VM, and Metasploitable. Includes strict network isolation and firewall rules.
     </p>
+    
+    <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">→ Click to view full diagram and details</p>
   </div>
 </a>
       <!-- 2. Sysmon + Wazuh -->
