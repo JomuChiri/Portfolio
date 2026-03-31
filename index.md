@@ -38,4 +38,4 @@ This portfolio demonstrates my ability to:
 
 ## 🌐 Connect
 - **LinkedIn:** www.linkedin.com/in/muchiri-josphat-965396114)
-- **GitHub Repo:** [SOC Portfolio Repository](https://github.com/JomuChiri/Portfolio)
+- **GitHub Repo:** [SOC Portfolio Repository]
