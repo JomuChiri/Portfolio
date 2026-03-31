@@ -1,36 +1,45 @@
 # SOC Lab Network Topology
 
-**Purpose**: A realistic, segmented home SOC lab for practicing detection engineering, incident response, threat hunting, and malware analysis in a safe environment.
+**Ongoing Project** — Candor Labs
 
-## Lab Architecture Overview
+This is my current home SOC lab architecture designed for realistic security operations practice, detection engineering, and safe attack simulation.
+
+## Full Lab Diagram
 
 ![SOC Lab Network Topology](https://jomuchiri.github.io/Portfolio/images/soc-lab-network.png)
 
-### Key Components
-- **pfSense** (192.168.1.1) – Firewall/Router with strict rules
-- **Ubuntu Wazuh Manager** (192.168.1.52) – Central SIEM and log management
-- **Active Directory DC01** (192.168.1.53) – Domain controller for realistic enterprise simulation
-- **Kali Linux** (192.168.1.51) – Attack simulation platform
-- **Flare-VM** (192.168.1.55) – Dedicated malware analysis workstation (no internet)
-- **Metasploitable** (192.168.1.54) – Vulnerable target (isolated)
+> *Click on the image to enlarge if needed. The diagram shows the complete network layout, traffic flows, firewall rules, and isolation strategy.*
 
-### Design Principles
+## Key Components
+
+- **pfSense (192.168.1.1)** – Primary firewall and router with strict egress rules
+- **Ubuntu Server – Wazuh Manager (192.168.1.52)** – Central SIEM for log collection and alerting
+- **Active Directory DC01 (192.168.1.53)** – Domain controller for realistic enterprise environment simulation
+- **Kali Linux (192.168.1.51)** – Attack platform
+- **Flare-VM (192.168.1.55)** – Dedicated malware analysis workstation (internet blocked)
+- **Metasploitable (192.168.1.54)** – Vulnerable target machine (internet blocked)
+
+## Design Goals & Security Features
+
 - **Network Segmentation** using LabNet (192.168.1.0/24)
-- **Internet Isolation** for attack and analysis VMs (Metasploitable & Flare-VM blocked)
-- **Controlled Traffic Flows** – Only necessary log collection, DNS, and auth traffic allowed
-- **Defense-in-Depth** – Proper firewall rules to simulate real production constraints
+- **Internet Isolation** for high-risk VMs (Metasploitable and Flare-VM have no outbound internet access)
+- **Controlled Traffic** – Only necessary log forwarding, DNS, and auth traffic is allowed
+- **Defense-in-Depth** through carefully defined pfSense firewall rules
 
-### Firewall Rules Summary
-- Block outbound internet from analysis/attack VMs
+## Firewall Rules Summary
+
+- Block Flare-VM → ANY (outbound)
+- Block Metasploitable → ANY (outbound)
 - Allow Wazuh agent logs to manager
-- Allow AD DNS traffic
-- Controlled LAN communication
+- Allow AD DNS traffic between domain controllers
+- Allow LAN communication where required
 
-## What I Learned / Skills Demonstrated
-- Network design and segmentation
-- Secure firewall configuration with pfSense
-- Safe lab isolation practices
-- Integration points for Wazuh and Sysmon
-- Preparation for realistic attack simulation and detection testing
+## What I'm Currently Using This Lab For
 
-This lab serves as the foundation for all my detection rules, incident response playbooks, and threat hunting exercises in Candor Labs.
+- Testing custom detection rules (Sysmon + Wazuh)
+- Practicing alert triage and incident response playbooks
+- Running controlled attack simulations
+- Developing SOC AI Workflow components
+- Documenting real-world security operations processes
+
+This lab serves as the foundation for all my hands-on work in Candor Labs and continues to evolve as I add new tools and scenarios.
