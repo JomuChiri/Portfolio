@@ -1,46 +1,50 @@
 # SOC Lab Network Topology
 
-**Part of Candor Labs**
+**Part of Candor Labs** | Ongoing Project
 
-This is my personal SOC lab environment designed for hands-on security operations practice.
+I designed and built this isolated SOC lab to create a realistic, safe environment for practicing security operations, detection engineering, and incident response.
 
-## Full Network Diagram
+## Lab Architecture
 
 ![SOC Lab Network Topology](https://jomuchiri.github.io/Portfolio/images/soc-lab-network.png)
 
-## Networking & Infrastructure Highlights
+## Key Design Decisions
 
-- **Firewall Implementation**: Deployed and configured pfSense as the central firewall and router (192.168.1.1)
-- **Network Segmentation**: Created a dedicated LabNet (192.168.1.0/24) to separate different security zones
-- **Egress Control & Isolation**: 
-  - Blocked outbound internet access for high-risk VMs (Metasploitable and Flare-VM)
-  - Prevented potential command-and-control or data exfiltration from attack/analysis machines
-- **Static IP Management**: Planned and assigned clean, documented IP addresses for all lab components
-- **Traffic Flow Design**: Defined clear rules for:
-  - Normal LAN traffic
-  - Log collection paths
-  - DNS and authentication traffic
-  - Blocked unwanted outbound connections
+- **pfSense Firewall** (192.168.1.1) as the central gateway with strict egress control
+- **Network Segmentation** using a dedicated LabNet (192.168.1.0/24)
+- **High-risk VM Isolation**: Blocked outbound internet access for Metasploitable and Flare-VM
+- **Controlled Traffic Flows**: Allowed only necessary paths for logging, DNS, and internal communication
+- **Static IP Scheme**: Clean, documented addressing for all components
 
 ## Lab Components
 
-| Component              | IP Address       | Role                              |
-|------------------------|------------------|-----------------------------------|
-| pfSense Firewall       | 192.168.1.1     | Firewall / Router                 |
-| Wazuh Manager          | 192.168.1.52    | SIEM Server                       |
-| AD DC01                | 192.168.1.53    | Active Directory Domain Controller|
-| Kali Linux             | 192.168.1.51    | Attack Simulation                 |
-| Flare-VM               | 192.168.1.55    | Malware Analysis Workstation      |
-| Metasploitable         | 192.168.1.54    | Vulnerable Target                 |
+| Component              | IP Address       | Purpose                              |
+|------------------------|------------------|--------------------------------------|
+| pfSense                | 192.168.1.1     | Firewall & Router                    |
+| Wazuh Manager          | 192.168.1.52    | Central SIEM & Log Management        |
+| AD Domain Controller   | 192.168.1.53    | Enterprise simulation                |
+| Kali Linux             | 192.168.1.51    | Attack simulation                    |
+| Flare-VM               | 192.168.1.55    | Malware analysis (isolated)          |
+| Metasploitable         | 192.168.1.54    | Vulnerable target (isolated)         |
 
-## Key Takeaways
+## Challenges & Solutions
 
-This lab demonstrates practical networking knowledge applied to security environments, including:
-- Secure firewall rule configuration
-- Network segmentation best practices
-- Controlled traffic management
-- Safe isolation of attack surfaces
+| Challenge                              | Solution Implemented |
+|----------------------------------------|----------------------|
+| High-risk VMs (Metasploitable & Flare-VM) could potentially reach the internet or C2 servers | Configured strict pfSense egress rules to completely block outbound internet access from these machines |
+| Wazuh agents failing to send logs across the firewall | Created specific firewall allow rules for Wazuh log collection traffic while maintaining least privilege |
+| Active Directory DNS traffic being blocked unintentionally | Added targeted allow rules for DNS traffic between domain controllers |
+| Managing multiple machines with changing IPs during testing | Implemented static IP assignments with clear documentation for better manageability |
+| Risk of lateral movement between attack and production-like systems | Used network segmentation and strict firewall policies to isolate attack surfaces |
 
-The infrastructure serves as the foundation for detection engineering and SIEM integration (covered in the Sysmon + Wazuh section).
+## What This Lab Enables
 
-**Status**: Ongoing — continuously expanded as part of Candor Labs.
+This infrastructure serves as the reliable foundation for:
+- Safe attack simulation and red team exercises
+- Testing custom detection rules (Sysmon + Wazuh)
+- Practicing alert triage and incident response playbooks
+- Developing automation scripts through the SOC AI Workflow project
+
+**Current Status**: Actively maintained and expanded as part of Candor Labs.
+
+**Next Steps**: Add more agents, integrate Suricata for network-level detection, and run controlled multi-stage attack scenarios.
