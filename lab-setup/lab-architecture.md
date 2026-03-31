@@ -1,45 +1,46 @@
 # SOC Lab Network Topology
 
-**Ongoing Project** — Candor Labs
+**Part of Candor Labs**
 
-This is my current home SOC lab architecture designed for realistic security operations practice, detection engineering, and safe attack simulation.
+This is my personal SOC lab environment designed for hands-on security operations practice.
 
-## Full Lab Diagram
+## Full Network Diagram
 
 ![SOC Lab Network Topology](https://jomuchiri.github.io/Portfolio/images/soc-lab-network.png)
 
-> *Click on the image to enlarge if needed. The diagram shows the complete network layout, traffic flows, firewall rules, and isolation strategy.*
+## Networking & Infrastructure Highlights
 
-## Key Components
+- **Firewall Implementation**: Deployed and configured pfSense as the central firewall and router (192.168.1.1)
+- **Network Segmentation**: Created a dedicated LabNet (192.168.1.0/24) to separate different security zones
+- **Egress Control & Isolation**: 
+  - Blocked outbound internet access for high-risk VMs (Metasploitable and Flare-VM)
+  - Prevented potential command-and-control or data exfiltration from attack/analysis machines
+- **Static IP Management**: Planned and assigned clean, documented IP addresses for all lab components
+- **Traffic Flow Design**: Defined clear rules for:
+  - Normal LAN traffic
+  - Log collection paths
+  - DNS and authentication traffic
+  - Blocked unwanted outbound connections
 
-- **pfSense (192.168.1.1)** – Primary firewall and router with strict egress rules
-- **Ubuntu Server – Wazuh Manager (192.168.1.52)** – Central SIEM for log collection and alerting
-- **Active Directory DC01 (192.168.1.53)** – Domain controller for realistic enterprise environment simulation
-- **Kali Linux (192.168.1.51)** – Attack platform
-- **Flare-VM (192.168.1.55)** – Dedicated malware analysis workstation (internet blocked)
-- **Metasploitable (192.168.1.54)** – Vulnerable target machine (internet blocked)
+## Lab Components
 
-## Design Goals & Security Features
+| Component              | IP Address       | Role                              |
+|------------------------|------------------|-----------------------------------|
+| pfSense Firewall       | 192.168.1.1     | Firewall / Router                 |
+| Wazuh Manager          | 192.168.1.52    | SIEM Server                       |
+| AD DC01                | 192.168.1.53    | Active Directory Domain Controller|
+| Kali Linux             | 192.168.1.51    | Attack Simulation                 |
+| Flare-VM               | 192.168.1.55    | Malware Analysis Workstation      |
+| Metasploitable         | 192.168.1.54    | Vulnerable Target                 |
 
-- **Network Segmentation** using LabNet (192.168.1.0/24)
-- **Internet Isolation** for high-risk VMs (Metasploitable and Flare-VM have no outbound internet access)
-- **Controlled Traffic** – Only necessary log forwarding, DNS, and auth traffic is allowed
-- **Defense-in-Depth** through carefully defined pfSense firewall rules
+## Key Takeaways
 
-## Firewall Rules Summary
+This lab demonstrates practical networking knowledge applied to security environments, including:
+- Secure firewall rule configuration
+- Network segmentation best practices
+- Controlled traffic management
+- Safe isolation of attack surfaces
 
-- Block Flare-VM → ANY (outbound)
-- Block Metasploitable → ANY (outbound)
-- Allow Wazuh agent logs to manager
-- Allow AD DNS traffic between domain controllers
-- Allow LAN communication where required
+The infrastructure serves as the foundation for detection engineering and SIEM integration (covered in the Sysmon + Wazuh section).
 
-## What I'm Currently Using This Lab For
-
-- Testing custom detection rules (Sysmon + Wazuh)
-- Practicing alert triage and incident response playbooks
-- Running controlled attack simulations
-- Developing SOC AI Workflow components
-- Documenting real-world security operations processes
-
-This lab serves as the foundation for all my hands-on work in Candor Labs and continues to evolve as I add new tools and scenarios.
+**Status**: Ongoing — continuously expanded as part of Candor Labs.
