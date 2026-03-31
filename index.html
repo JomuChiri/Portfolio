@@ -70,22 +70,21 @@
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-<!-- 1. Lab Setup - Compact Card -->
+<!-- 1. Lab Setup - Network Focused -->
 <a href="lab-setup/lab-architecture.md" class="group bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition-all duration-300">
   <div class="p-8">
     <div class="uppercase text-xs font-bold tracking-widest mb-3">Lab Setup</div>
     <h3 class="text-2xl font-semibold mb-4">SOC Lab Network Topology</h3>
     
     <img src="images/soc-lab-network.png" 
-         alt="SOC Lab Topology" 
+         alt="SOC Lab Network Topology" 
          class="w-full rounded-2xl shadow-2xl mb-6 h-48 object-cover">
     
-    <p class="text-white/80 text-sm">
-      Fully segmented home SOC lab with pfSense firewall, Wazuh manager, Active Directory, 
-      Kali Linux, Flare-VM, and Metasploitable. Includes strict network isolation and firewall rules.
+    <p class="text-white/80 text-sm leading-relaxed">
+      Designed and built a segmented SOC lab network using pfSense as the primary firewall. 
+      Implemented proper network segmentation, static IP addressing, controlled traffic flows, 
+      and strict egress rules to isolate high-risk machines while maintaining safe attack simulation capabilities.
     </p>
-    
-    <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">→ Click to view full diagram and details</p>
   </div>
 </a>
       <!-- 2. Sysmon + Wazuh -->
