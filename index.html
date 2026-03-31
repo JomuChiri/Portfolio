@@ -13,112 +13,97 @@
 <body class="bg-zinc-950 text-white">
 
   <!-- HERO -->
-  <section class="bg-gradient-to-br from-zinc-900 to-black py-20">
+  <section class="bg-gradient-to-br from-zinc-900 to-black py-20 border-b border-zinc-800">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h1 class="text-6xl font-bold mb-4">Josphat Muchiri</h1>
-      <p class="text-2xl text-emerald-400 mb-6">Junior SOC Analyst | Hands-on Detection & Incident Response</p>
-      <p class="max-w-2xl mx-auto text-lg text-zinc-300 mb-8">
-        Motivated SOC Analyst with practical experience in alert triage, malware analysis, phishing investigation, 
-        and building a full home SOC lab using Wazuh, Sysmon & pfSense. Recently completed LetsDefend SOC Analyst path.
+      <p class="text-2xl text-emerald-400 mb-6">Junior SOC Analyst | Detection Engineering & Incident Response</p>
+      <p class="max-w-2xl mx-auto text-lg text-zinc-300 mb-10">
+        Hands-on SOC Analyst with practical experience in alert triage, malware analysis, phishing investigation, 
+        and building a functional home SOC lab using Wazuh, Sysmon, and pfSense. 
+        Completed LetsDefend SOC Analyst Learning Path. Ready for Tier 1 SOC roles.
       </p>
-      <div class="flex gap-4 justify-center">
+      <div class="flex flex-wrap gap-4 justify-center">
         <a href="https://jomuchiri.github.io/Portfolio/resume.pdf" 
-           class="bg-emerald-500 hover:bg-emerald-600 px-8 py-4 rounded-xl font-semibold flex items-center gap-2">
+           class="bg-emerald-500 hover:bg-emerald-600 px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition">
           <i class="fas fa-download"></i> Download Resume
         </a>
         <a href="https://www.linkedin.com/in/muchiri-josphat-965396114" target="_blank"
-           class="bg-white text-black hover:bg-zinc-200 px-8 py-4 rounded-xl font-semibold flex items-center gap-2">
+           class="bg-white text-black hover:bg-zinc-200 px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition">
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
       </div>
-      <p class="text-zinc-400 mt-6">Nairobi, Kenya | +254 725 873 673</p>
+      <p class="text-zinc-400 mt-8">Nairobi, Kenya • +254 725 873 673 • muchirijosmuchiri@gmail.com</p>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section class="max-w-5xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-6 text-emerald-400">About Me</h2>
-    <p class="text-lg text-zinc-300 leading-relaxed">
-      Founder of Candor Labs — a hands-on SOC environment I built from scratch. 
-      Passionate about turning raw logs into actionable detections and helping organisations 
-      strengthen their security posture. Ready to contribute as a Tier 1 SOC Analyst in a high-volume environment.
+    <p class="text-lg text-zinc-300 leading-relaxed max-w-3xl">
+      Founder of <strong>Candor Labs</strong> — a personal SOC environment I built to gain real-world experience in security operations. 
+      I focus on turning logs into detections, investigating incidents, and documenting everything for future reference. 
+      Currently strengthening my skills through hands-on labs and looking for my first SOC Analyst role.
     </p>
   </section>
 
-  <!-- SKILLS -->
-  <section class="bg-zinc-900 py-16">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-8 text-center">Technical Skills</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-        <!-- Add your skills here as small cards -->
-        <div class="bg-zinc-800 p-6 rounded-2xl">SOC & Incident Response</div>
-        <div class="bg-zinc-800 p-6 rounded-2xl">Wazuh + Sysmon</div>
-        <div class="bg-zinc-800 p-6 rounded-2xl">Malware Analysis (Static & Dynamic)</div>
-        <div class="bg-zinc-800 p-6 rounded-2xl">Phishing Triage</div>
-        <div class="bg-zinc-800 p-6 rounded-2xl">MITRE ATT&CK & NIST</div>
-        <div class="bg-zinc-800 p-6 rounded-2xl">pfSense + Endpoint Hardening</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED PROJECTS (exactly matches your diagram) -->
-  <section class="max-w-5xl mx-auto px-6 py-16">
+  <!-- FEATURED PROJECTS -->
+  <section class="max-w-5xl mx-auto px-6 py-16 bg-zinc-900">
     <h2 class="text-3xl font-bold mb-12 text-center">Featured Case Studies</h2>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- Lab Setup -->
-      <a href="lab-setup/lab-architecture.html" class="block bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition">
+      <!-- 1. Lab Setup -->
+      <a href="lab-setup/lab-architecture.md" class="group bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
-          <div class="text-sm font-bold tracking-widest mb-2">ORANGE</div>
-          <h3 class="text-2xl font-semibold mb-4">Lab Setup</h3>
-          <img src="images/repo_topology.png" alt="Lab Topology" class="rounded-2xl mb-6 shadow-xl">
-          <p class="text-white/80">Full home SOC lab architecture using Wazuh, Sysmon, pfSense, Windows 11 & Kali Linux</p>
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">Lab Setup</div>
+          <h3 class="text-2xl font-semibold mb-6">Home SOC Lab Architecture</h3>
+          <img src="images/repo-topology.png" alt="Lab Topology" class="w-full rounded-2xl shadow-2xl mb-6 group-hover:scale-105 transition">
+          <p class="text-white/80">Wazuh, Sysmon, pfSense, Windows 11 endpoint & Kali Linux for realistic attack simulation and detection testing.</p>
         </div>
       </a>
 
-      <!-- Sysmon + Wazuh -->
-      <a href="sysmon-wazuh/integration.html" class="block bg-purple-600 hover:bg-purple-700 rounded-3xl overflow-hidden transition">
+      <!-- 2. Sysmon + Wazuh -->
+      <a href="sysmon-wazuh/integration.md" class="group bg-purple-600 hover:bg-purple-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
-          <div class="text-sm font-bold tracking-widest mb-2">PURPLE</div>
-          <h3 class="text-2xl font-semibold mb-4">Sysmon + Wazuh</h3>
-          <p class="text-white/80">Integration, log collection & correlation for real-time detection</p>
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">SIEM Integration</div>
+          <h3 class="text-2xl font-semibold mb-6">Sysmon + Wazuh</h3>
+          <p class="text-white/80">Agent deployment, log collection, and correlation for effective monitoring and alerting.</p>
         </div>
       </a>
 
-      <!-- Detection Engineering -->
-      <a href="detection-engineering/case-study.html" class="block bg-green-600 hover:bg-green-700 rounded-3xl overflow-hidden transition">
+      <!-- 3. Detection Engineering -->
+      <a href="detection-engineering/case-study.md" class="group bg-green-600 hover:bg-green-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
-          <div class="text-sm font-bold tracking-widest mb-2">GREEN</div>
-          <h3 class="text-2xl font-semibold mb-4">Detection Engineering</h3>
-          <p class="text-white/80">Custom detection rules for web attacks, brute force & malicious macros</p>
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">Detection Engineering</div>
+          <h3 class="text-2xl font-semibold mb-6">Custom Detections</h3>
+          <p class="text-white/80">Rules for web attacks, brute force attempts, malicious VBA macros, and MSHTML exploits.</p>
         </div>
       </a>
 
-      <!-- Incident Response -->
-      <a href="incident-response/phishing-triage.html" class="block bg-red-600 hover:bg-red-700 rounded-3xl overflow-hidden transition">
+      <!-- 4. Incident Response -->
+      <a href="incident-response/phishing-triage.md" class="group bg-red-600 hover:bg-red-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
-          <div class="text-sm font-bold tracking-widest mb-2">RED</div>
-          <h3 class="text-2xl font-semibold mb-4">Incident Response</h3>
-          <p class="text-white/80">Phishing triage, brute-force investigation & playbooks</p>
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">Incident Response</div>
+          <h3 class="text-2xl font-semibold mb-6">Phishing & Brute Force Triage</h3>
+          <p class="text-white/80">Realistic incident investigation, playbook creation, and alert handling workflows.</p>
         </div>
       </a>
 
-      <!-- Threat Hunting -->
-      <a href="threat-hunting/lsass-hunt.md" class="block bg-teal-600 hover:bg-teal-700 rounded-3xl overflow-hidden transition">
+      <!-- 5. Threat Hunting -->
+      <a href="threat-hunting/lsass-hunt.md" class="group bg-teal-600 hover:bg-teal-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
-          <div class="text-sm font-bold tracking-widest mb-2">TEAL</div>
-          <h3 class="text-2xl font-semibold mb-4">Threat Hunting</h3>
-          <p class="text-white/80">lsass memory hunting and proactive threat discovery</p>
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">Threat Hunting</div>
+          <h3 class="text-2xl font-semibold mb-6">Proactive Hunting</h3>
+          <p class="text-white/80">lsass memory hunting and other proactive threat discovery techniques.</p>
         </div>
       </a>
 
-      <!-- GRC Compliance -->
-      <a href="grc/nist-ir-mapping.md" class="block bg-yellow-600 hover:bg-yellow-700 rounded-3xl overflow-hidden transition">
+      <!-- 6. GRC Compliance (Updated with both files) -->
+      <a href="grc/nist-ir-mapping.md" class="group bg-yellow-600 hover:bg-yellow-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
-          <div class="text-sm font-bold tracking-widest mb-2">YELLOW</div>
-          <h3 class="text-2xl font-semibold mb-4">GRC Compliance</h3>
-          <p class="text-white/80">NIST IR mapping and control implementation</p>
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">GRC Compliance</div>
+          <h3 class="text-2xl font-semibold mb-6">NIST IR Mapping & Risk Assessment</h3>
+          <p class="text-white/80">Mapping security controls to NIST frameworks and conducting risk assessments.</p>
         </div>
       </a>
 
@@ -126,23 +111,21 @@
   </section>
 
   <!-- CERTIFICATIONS -->
-  <section class="bg-zinc-900 py-16">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-8">Certifications</h2>
-      <ul class="space-y-4 text-lg">
-        <li>✅ LetsDefend SOC Analyst Learning Path – March 2026</li>
-        <li>✅ ISC2 Certified in Cybersecurity (CC) – March 2025</li>
-        <li>✅ Fortinet Cybersecurity Fundamentals – February 2026</li>
-        <li>✅ Cisco Networking Academy (multiple courses) – 2025</li>
-      </ul>
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-emerald-400">Certifications</h2>
+    <div class="grid md:grid-cols-2 gap-6 text-lg">
+      <div class="bg-zinc-900 p-6 rounded-2xl">✅ LetsDefend SOC Analyst Learning Path – March 2026</div>
+      <div class="bg-zinc-900 p-6 rounded-2xl">✅ ISC2 Certified in Cybersecurity (CC) – March 2025</div>
+      <div class="bg-zinc-900 p-6 rounded-2xl">✅ Fortinet Cybersecurity Fundamentals – February 2026</div>
+      <div class="bg-zinc-900 p-6 rounded-2xl">✅ Cisco Networking Academy Junior Cybersecurity Analyst – 2025</div>
     </div>
   </section>
 
-  <!-- FOOTER / CONTACT -->
-  <footer class="bg-black py-12 text-center">
-    <p class="text-zinc-400">Let's connect and talk about SOC opportunities!</p>
-    <p class="mt-4">
-      <a href="mailto:muchirijosmuchiri@gmail.com" class="text-emerald-400 hover:underline">muchirijosmuchiri@gmail.com</a>
+  <!-- CONTACT -->
+  <footer class="bg-black py-16 text-center border-t border-zinc-800">
+    <p class="text-xl mb-4">Open to SOC Analyst opportunities in Kenya or remote</p>
+    <p class="text-zinc-400">
+      Email: <a href="mailto:muchirijosmuchiri@gmail.com" class="text-emerald-400 hover:underline">muchirijosmuchiri@gmail.com</a>
     </p>
   </footer>
 
