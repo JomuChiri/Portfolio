@@ -35,7 +35,7 @@
     </div>
   </section>
 
-  <!-- ABOUT ME - Updated with Candor Labs projects -->
+  <!-- ABOUT ME -->
   <section class="max-w-5xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-6 text-emerald-400">About Me</h2>
     
@@ -70,65 +70,89 @@
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-<!-- 1. Lab Setup - Network Focused -->
-<a href="lab-setup/lab-architecture.md" class="group bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition-all duration-300">
-  <div class="p-8">
-    <div class="uppercase text-xs font-bold tracking-widest mb-3">Lab Setup</div>
-    <h3 class="text-2xl font-semibold mb-4">SOC Lab Network Topology</h3>
-    
-    <img src="images/soc-lab-network.png" 
-         alt="SOC Lab Network Topology" 
-         class="w-full rounded-2xl shadow-2xl mb-6 h-48 object-cover">
-    
-    <p class="text-white/80 text-sm leading-relaxed">
-      Designed and built a segmented SOC lab network using pfSense as the primary firewall. 
-      Implemented proper network segmentation, static IP addressing, controlled traffic flows, 
-      and strict egress rules to isolate high-risk machines while maintaining safe attack simulation capabilities.
-    </p>
-  </div>
-</a>
+      <!-- 1. Lab Setup - Network Focused -->
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/lab-setup/lab-architecture.md" target="_blank"
+         class="group bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition-all duration-300">
+        <div class="p-8">
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">Lab Setup</div>
+          <h3 class="text-2xl font-semibold mb-4">SOC Lab Network Topology</h3>
+          
+          <img src="images/soc-lab-network.png" 
+               alt="SOC Lab Network Topology" 
+               class="w-full rounded-2xl shadow-2xl mb-6 h-48 object-cover">
+          
+          <p class="text-white/80 text-sm leading-relaxed">
+            Designed and built a segmented SOC lab using pfSense firewall with proper network isolation, 
+            static IP planning, and strict egress controls for safe attack simulation.
+          </p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View full diagram, challenges & solutions on GitHub
+          </p>
+        </div>
+      </a>
+
       <!-- 2. Sysmon + Wazuh -->
-      <a href="sysmon-wazuh/integration.md" class="group bg-purple-600 hover:bg-purple-700 rounded-3xl overflow-hidden transition-all duration-300">
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/sysmon-wazuh/integration.md" target="_blank"
+         class="group bg-purple-600 hover:bg-purple-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">SIEM Integration</div>
           <h3 class="text-2xl font-semibold mb-6">Sysmon + Wazuh</h3>
-          <p class="text-white/80">Agent deployment, log collection, and correlation for effective monitoring and alerting.</p>
+          <p class="text-white/80">Agent deployment, log collection, correlation, and real-time monitoring setup.</p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View details on GitHub
+          </p>
         </div>
       </a>
 
       <!-- 3. Detection Engineering -->
-      <a href="detection-engineering/case-study.md" class="group bg-green-600 hover:bg-green-700 rounded-3xl overflow-hidden transition-all duration-300">
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/detection-engineering/case-study.md" target="_blank"
+         class="group bg-green-600 hover:bg-green-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Detection Engineering</div>
           <h3 class="text-2xl font-semibold mb-6">Custom Detections</h3>
           <p class="text-white/80">Rules for web attacks, brute force attempts, malicious VBA macros, and MSHTML exploits.</p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View details on GitHub
+          </p>
         </div>
       </a>
 
       <!-- 4. Incident Response -->
-      <a href="incident-response/phishing-triage.md" class="group bg-red-600 hover:bg-red-700 rounded-3xl overflow-hidden transition-all duration-300">
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/incident-response/phishing-triage.md" target="_blank"
+         class="group bg-red-600 hover:bg-red-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Incident Response</div>
           <h3 class="text-2xl font-semibold mb-6">Phishing & Brute Force Triage</h3>
           <p class="text-white/80">Realistic incident investigation, playbook creation, and alert handling workflows.</p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View details on GitHub
+          </p>
         </div>
       </a>
 
       <!-- 5. Threat Hunting -->
-      <a href="threat-hunting/lsass-hunt.md" class="group bg-teal-600 hover:bg-teal-700 rounded-3xl overflow-hidden transition-all duration-300">
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/threat-hunting/lsass-hunt.md" target="_blank"
+         class="group bg-teal-600 hover:bg-teal-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Threat Hunting</div>
           <h3 class="text-2xl font-semibold mb-6">Proactive Hunting</h3>
           <p class="text-white/80">lsass memory hunting and other proactive threat discovery techniques.</p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View details on GitHub
+          </p>
         </div>
       </a>
 
       <!-- 6. GRC Compliance -->
-      <a href="grc/nist-ir-mapping.md" class="group bg-yellow-600 hover:bg-yellow-700 rounded-3xl overflow-hidden transition-all duration-300">
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/grc/nist-ir-mapping.md" target="_blank"
+         class="group bg-yellow-600 hover:bg-yellow-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">GRC Compliance</div>
           <h3 class="text-2xl font-semibold mb-6">NIST IR Mapping & Risk Assessment</h3>
           <p class="text-white/80">Mapping security controls to NIST frameworks and conducting risk assessments.</p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View details on GitHub
+          </p>
         </div>
       </a>
 
@@ -142,13 +166,13 @@
       <div class="bg-zinc-900 p-6 rounded-2xl">✅ LetsDefend SOC Analyst Learning Path – March 2026</div>
       <div class="bg-zinc-900 p-6 rounded-2xl">✅ ISC2 Certified in Cybersecurity (CC) – March 2025</div>
       <div class="bg-zinc-900 p-6 rounded-2xl">✅ Fortinet Cybersecurity Fundamentals – February 2026</div>
-      <div class="bg-zinc-900 p-6 rounded-2xl">✅ Cisco Networking Academy Junior Cybersecurity Analyst – 2025</div>
+      <div class="bg-zinc-900 p-6 rounded-2xl">✅ Cisco Networking Academy Courses – 2025</div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <footer class="bg-black py-16 text-center border-t border-zinc-800">
-    <p class="text-xl mb-4">Open to SOC Analyst opportunities in worldwide.</p>
+    <p class="text-xl mb-4">Open to SOC Analyst opportunities in Kenya or remote</p>
     <p class="text-zinc-400">
       Email: <a href="mailto:muchirijosmuchiri@gmail.com" class="text-emerald-400 hover:underline">muchirijosmuchiri@gmail.com</a>
     </p>
