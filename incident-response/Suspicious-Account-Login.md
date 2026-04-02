@@ -13,7 +13,7 @@ A login notification was received indicating access to an account from a new dev
 - **Location:** Nairobi, Kenya  
 - **IP Address:** 105.164.31.17  
 
-![SOC Lab Network Topology](https://jomuchiri.github.io/Portfolio/images/bolt-login-alert.png)<img src="[/Portfolio/images/bolt-login-alert.png](https://jomuchiri.github.io/Portfolio/images/bolt-login-alert.png" alt="Suspicious Login Alert" width="600">
+![SOC Lab Network Topology](https://jomuchiri.github.io/Portfolio/images/bolt-login-alert.png)
 
 The login was flagged as unusual and required investigation.
 
