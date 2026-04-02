@@ -1,54 +1,66 @@
-1. Title
-Threat Hunting – LSASS Credential Dumping – [Date]
+# Threat Hunting: lsass Memory Dump Analysis
 
-2. Objective
-- Hypothesis: Attackers may attempt to access LSASS memory to dump credentials.
-- Goal: Hunt for suspicious LSASS access events across endpoint telemetry.
-- Why: Credential dumping is a high‑impact technique often used in lateral movement.
+**Part of Candor Labs** | Ongoing Project
 
-3. Environment Overview
-- Endpoint: Windows 11 with Sysmon installed.
-- SIEM: Wazuh manager receiving Sysmon logs.
-- Telemetry: Sysmon Event ID 10 (Process Access), Event ID 1 (Process Creation).
-- Tools: Wazuh queries, Sysmon config, MITRE ATT&CK mapping.
+This case study documents a proactive threat hunting exercise I conducted in my home SOC lab, focusing on detecting credential dumping via **LSASS** process memory access — a common technique used by attackers (MITRE ATT&CK: **T1003.001**).
 
-4. Hunt Workflow
-a. Formulate Hypothesis:
-  - “If an attacker is attempting credential dumping, we should see suspicious processes accessing lsass.exe.”
-b. Define Data Sources:
-  - Sysmon logs (Event ID 10).
-  - Wazuh alerts for process access.
-c. Query SIEM:
-  - Search for Event ID 10 with TargetProcess = lsass.exe.
-  - Filter by suspicious parent processes (e.g., cmd.exe, powershell.exe).
-d. Analyze Results:
-  - Identify legitimate vs suspicious access.
-  - Note false positives (e.g., AV tools).
-e. Validate Findings:
-  - Simulate attack using Mimikatz in lab.
-  - Confirm detection in Wazuh dashboard.
-f. Document Evidence:
-  - Screenshots of query results.
-  - Sysmon event snippet.
-  - Wazuh alert screenshot.
-5. Challenges & Fixes
-- Noise: Legitimate AV tools accessing LSASS.
-Fix: Add exclusions for trusted processes.
-- False Positives: System processes flagged.
-Fix: Tune rules to focus on suspicious parent processes.
+## Objective
 
-6. Outcome
-- Successfully hunted for LSASS access attempts.
-- Validated detection with simulated attack.
-- Reduced false positives through tuning.
-- IOC list generated (process names, hashes).
+Identify signs of credential theft by hunting for suspicious access to the LSASS (Local Security Authority Subsystem Service) process, which stores sensitive credentials in memory.
 
-7. Recruiter‑Friendly Summary
-“This case study demonstrates my ability to conduct hypothesis‑driven threat hunts. I investigated LSASS access attempts, validated detections with simulated attacks, and tuned rules to reduce noise. Showcasing both technical depth and operational impact.”
+## Hunting Methodology
 
-8. Next Steps
-- Expand hunts to other credential dumping techniques (e.g., SAM database access).
-- Automate queries for continuous monitoring.
-- Document threat hunting playbook for reuse.
+I performed the hunt using the following approach:
 
+1. **Hypothesis**: An attacker has obtained access to the system and is attempting to dump LSASS memory to extract credentials.
+2. **Data Sources**: 
+   - Sysmon (Process Access events - Event ID 10)
+   - Windows Security Logs
+   - Wazuh for centralized visibility
+3. **Tools Used**: Sysmon, Wazuh dashboard, Volatility (for offline memory analysis), and custom queries.
 
+## Key Indicators Monitored
+
+- Unusual process access to `lsass.exe` (especially from non-system processes)
+- Processes with `SeDebugPrivilege` enabled
+- Suspicious parent-child relationships (e.g., powershell.exe or cmd.exe accessing lsass.exe)
+- High-volume memory reads from LSASS
+
+## Hunt Execution & Findings
+
+- Configured Sysmon to log detailed Process Access events targeting LSASS.
+- Ran a controlled test using Mimikatz (common credential dumping tool) to simulate real attacker behavior.
+- Successfully detected the malicious access in both Sysmon logs and Wazuh dashboard.
+- Performed memory analysis using Volatility to confirm dumped credentials.
+
+**Screenshot:**  
+*(Add your actual hunt screenshot here)*  
+![lsass Hunt Detection](../images/lsass-hunt-detection.png)
+
+## Challenges & Solutions
+
+| Challenge                              | Solution Implemented |
+|----------------------------------------|----------------------|
+| LSASS access events are very noisy     | Applied targeted filtering and focused on high-value access patterns |
+| Distinguishing legitimate vs malicious access | Used process ancestry analysis and privilege checks |
+| Testing in a safe environment          | Used isolated lab VMs with strict network segmentation |
+
+## Results
+
+- Successfully created a reusable detection rule for LSASS memory access attempts.
+- Improved visibility into credential dumping techniques.
+- Reduced time to detect this type of attack through proactive hunting rather than waiting for alerts.
+
+## MITRE ATT&CK Mapping
+
+- **T1003.001** – OS Credential Dumping: LSASS Memory
+- **T1059** – Command and Scripting Interpreter
+
+## Lessons Learned
+
+- Proactive threat hunting significantly complements rule-based detection.
+- Proper Sysmon configuration is critical for effective hunting.
+- Combining endpoint telemetry (Sysmon) with centralized SIEM (Wazuh) provides powerful hunting capabilities.
+- Documentation and repeatable queries are essential for future hunts.
+
+This exercise strengthened my ability to think like an attacker and improved my detection engineering skills. It
