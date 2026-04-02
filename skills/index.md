@@ -1,7 +1,5 @@
 # Skills & Technical Capabilities
 
-**Part of Candor Labs**
-
 ### Core Strengths
 
 **Security Operations & Monitoring**
@@ -12,7 +10,7 @@
 **Detection & Threat Hunting**
 - Custom detection rule development
 - MITRE ATT&CK mapping
-- Proactive threat hunting (e.g., lsass credential dumping)
+- Proactive threat hunting (lsass credential dumping)
 
 **Forensics & Malware Analysis**
 - Memory forensics using Volatility
@@ -37,7 +35,7 @@
 
 - **SIEM & Logging**: Wazuh, Sysmon, Windows Event Logs
 - **Forensics**: Volatility, oletools, ProcMon, CyberChef
-- **Networking**: pfSense, network segmentation
+- **Networking**: pfSense
 - **Development**: Python, Bash
 - **Frameworks**: MITRE ATT&CK, NIST
 
