@@ -1,51 +1,34 @@
-1. Title
-Forensics – Memory Analysis – [Date]
+# Memory Analysis Report
 
-2. Objective
-- Goal: Investigate a captured memory image for signs of malware or credential theft.
-- Why: Memory analysis reveals in‑memory artifacts (processes, handles, network connections) that may not persist on disk.
-- Scenario: Simulated malware execution on a Windows endpoint, followed by memory capture.
+**Part of Candor Labs** | Forensics Case Study
 
-3. Environment Overview
-- Endpoint: Windows 11 VM with Sysmon logging.
-- Tools:
-- Memory capture tool (e.g., DumpIt, FTK Imager).
-- Analysis framework (Volatility, Rekall).
-- SIEM (Wazuh) for correlated logs.
-- Data: Memory image file (.raw or .mem).
+I performed memory forensics on a compromised Windows system using **Volatility 3** to investigate potential credential dumping and process injection.
 
-4. Acquisition
-- Capture memory image from endpoint after simulated attack.
-- Document acquisition method (tool used, command executed).
-- Validate integrity (hash the image file).
-- Store securely for analysis.
+## Tools Used
+- Volatility 3
+- Sysmon logs (for correlation)
+- Flare-VM analysis environment
 
-5. Analysis Workflow
-🔍 Process Analysis
-- Run Volatility plugin: pslist, pstree.
-- Identify suspicious processes (e.g., mimikatz.exe, injected powershell.exe).
-- Screenshot: process tree output.
-🔗 Network Connections
-- Run netscan.
-- Identify unusual outbound connections.
-- Document IPs/domains.
-🧩 DLL & Handles
-- Run dlllist and handles.
-- Look for injected DLLs or suspicious handles to lsass.exe.
-📜 Command History
-- Run cmdscan or consoles.
-- Extract attacker commands executed in memory.
+## Analysis Steps
 
-6. Challenges & Fixes
-- Large memory image size → chunked analysis.
-- False positives (legitimate system processes flagged).
-- Fix: Cross‑reference with Sysmon/Wazuh logs for validation.
+1. Acquired memory dump from the target Windows 11 endpoint.
+2. Identified running processes and checked for anomalies in `lsass.exe`.
+3. Scanned for injected code and hollowed processes.
+4. Extracted credentials and command history from memory.
+5. Correlated findings with Sysmon logs for timeline reconstruction.
 
-7. Outcome
-- Identified suspicious process accessing LSASS.
-- Found malicious DLL injection.
-- Extracted IOC list (process names, hashes, IPs).
-- Correlated findings with SIEM alerts.
+## Key Findings
+- Detected suspicious access to LSASS process memory.
+- Identified signs of credential dumping (MITRE T1003.001).
+- Found evidence of process injection in legitimate system processes.
 
-8. Recruiter‑Friendly Summary
-“This case study demonstrates my ability to perform memory forensics, capturing and analyzing volatile artifacts to detect credential dumping and malware activity. I used Volatility to identify suspicious processes and correlated findings with SIEM telemetry, showing both technical depth and investigative rigor.”
+## Challenges & Solutions
+- Large memory dump size → Used targeted Volatility plugins instead of full scan.
+- False positives in process listing → Cross-referenced with Sysmon Event ID 10 (Process Access).
+
+## Lessons Learned
+- Memory forensics is powerful for detecting techniques that leave minimal disk artifacts.
+- Combining Volatility with Sysmon provides strong context and reduces analysis time.
+- Proper documentation of findings is critical for incident reporting.
+
+**Status**: Completed lab exercise — techniques reusable for future investigations.
