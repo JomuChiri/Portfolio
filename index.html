@@ -41,26 +41,15 @@
     
     <p class="text-lg text-zinc-300 leading-relaxed max-w-3xl">
       I am the founder of <strong>Candor Labs</strong>, my personal security research and development initiative. 
-      Under Candor Labs, I am actively building and evolving multiple ongoing projects that combine security operations, 
-      detection engineering, and AI-driven automation.
+      Under Candor Labs, I actively build projects combining detection engineering, incident response, and AI-driven automation.
     </p>
 
     <p class="text-lg text-zinc-300 leading-relaxed max-w-3xl mt-4">
-      <strong>Candor Labs – Web Security MVP</strong> focuses on detecting and mitigating high-impact web and AI threats, 
-      including prompt injection in AI-powered applications, SQL injection in APIs and microservices, and insecure deserialization. 
-      The project includes inline protection mechanisms, a shift-left GitHub Action scanner, and fully explainable detections 
-      with structured JSON logs, reasoning, and remediation guidance.
+      Key projects include an AI-driven web security MVP and an AI-augmented SOC Workflow using Elastic, Python, and Jira.
     </p>
 
     <p class="text-lg text-zinc-300 leading-relaxed max-w-3xl mt-4">
-      My second major ongoing project under Candor Labs is <strong>SOC AI Workflow</strong> — an AI-augmented SOC pipeline 
-      that integrates Elastic SIEM for detection, Python-based automation, Agentic AI for intelligent alert enrichment and triage, 
-      and Jira for streamlined case management. The aim is to significantly reduce manual workload while improving detection accuracy and response speed.
-    </p>
-
-    <p class="text-lg text-zinc-300 leading-relaxed max-w-3xl mt-4">
-      These hands-on projects allow me to deeply explore modern security challenges. I also maintain and expand a home SOC lab 
-      environment using Wazuh, Sysmon, and pfSense to support realistic attack simulation, detection testing, and broader security operations practice.
+      I also maintain a realistic home SOC lab with Wazuh, Sysmon, and pfSense for hands-on practice in security operations.
     </p>
   </section>
 
@@ -70,20 +59,18 @@
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- 1. Lab Setup - Network Focused -->
+      <!-- 1. Lab Setup -->
       <a href="https://github.com/jomuchiri/Portfolio/blob/main/lab-setup/lab-architecture.md" target="_blank"
          class="group bg-orange-600 hover:bg-orange-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Lab Setup</div>
           <h3 class="text-2xl font-semibold mb-4">SOC Lab Network Topology</h3>
-          
           <img src="images/soc-lab-network.png" 
                alt="SOC Lab Network Topology" 
                class="w-full rounded-2xl shadow-2xl mb-6 h-48 object-cover">
-          
           <p class="text-white/80 text-sm leading-relaxed">
             Designed and built a segmented SOC lab using pfSense firewall with proper network isolation, 
-            static IP planning, and strict egress controls for safe attack simulation.
+            static IP planning, and strict egress controls.
           </p>
           <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
             → View full diagram, challenges & solutions on GitHub
@@ -97,7 +84,7 @@
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">SIEM Integration</div>
           <h3 class="text-2xl font-semibold mb-6">Sysmon + Wazuh</h3>
-          <p class="text-white/80">Agent deployment, log collection, correlation, and real-time monitoring setup.</p>
+          <p class="text-white/80">Endpoint telemetry collection, log forwarding, and correlation using Sysmon and Wazuh.</p>
           <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
             → View details on GitHub
           </p>
@@ -109,8 +96,8 @@
          class="group bg-green-600 hover:bg-green-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Detection Engineering</div>
-          <h3 class="text-2xl font-semibold mb-6">Custom Detections</h3>
-          <p class="text-white/80">Rules for web attacks, brute force attempts, malicious VBA macros, and MSHTML exploits.</p>
+          <h3 class="text-2xl font-semibold mb-6">Custom Detection Rules</h3>
+          <p class="text-white/80">Built and tuned detections for web attacks, brute force, malicious macros, and MSHTML exploits.</p>
           <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
             → View details on GitHub
           </p>
@@ -122,10 +109,13 @@
          class="group bg-red-600 hover:bg-red-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Incident Response</div>
-          <h3 class="text-2xl font-semibold mb-6">Phishing & Brute Force Triage</h3>
-          <p class="text-white/80">Realistic incident investigation, playbook creation, and alert handling workflows.</p>
+          <h3 class="text-2xl font-semibold mb-6">Phishing & Suspicious Login Triage</h3>
+          <p class="text-white/80">
+            Hands-on incident triage including phishing analysis, brute force investigation, 
+            and suspicious account login response with full documentation and remediation steps.
+          </p>
           <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
-            → View details on GitHub
+            → View sample incident reports on GitHub
           </p>
         </div>
       </a>
@@ -135,23 +125,38 @@
          class="group bg-teal-600 hover:bg-teal-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">Threat Hunting</div>
-          <h3 class="text-2xl font-semibold mb-6">Proactive Hunting</h3>
-          <p class="text-white/80">lsass memory hunting and other proactive threat discovery techniques.</p>
+          <h3 class="text-2xl font-semibold mb-6">Proactive lsass Hunting</h3>
+          <p class="text-white/80">Conducted proactive hunts for credential dumping via LSASS memory access (MITRE T1003.001).</p>
           <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
-            → View details on GitHub
+            → View hunt methodology and findings on GitHub
           </p>
         </div>
       </a>
 
-      <!-- 6. GRC Compliance -->
+      <!-- 6. Forensics - New Card -->
+      <a href="https://github.com/jomuchiri/Portfolio/blob/main/forensics/memory-analysis.md" target="_blank"
+         class="group bg-indigo-600 hover:bg-indigo-700 rounded-3xl overflow-hidden transition-all duration-300">
+        <div class="p-8">
+          <div class="uppercase text-xs font-bold tracking-widest mb-3">Forensics</div>
+          <h3 class="text-2xl font-semibold mb-6">Memory & Malware Analysis</h3>
+          <p class="text-white/80">
+            Performed memory forensics using Volatility and analyzed malicious documents (VBA macros, MSHTML exploits).
+          </p>
+          <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
+            → View memory analysis and malicious doc triage on GitHub
+          </p>
+        </div>
+      </a>
+
+      <!-- 7. GRC Compliance -->
       <a href="https://github.com/jomuchiri/Portfolio/blob/main/grc/nist-ir-mapping.md" target="_blank"
          class="group bg-yellow-600 hover:bg-yellow-700 rounded-3xl overflow-hidden transition-all duration-300">
         <div class="p-8">
           <div class="uppercase text-xs font-bold tracking-widest mb-3">GRC Compliance</div>
           <h3 class="text-2xl font-semibold mb-6">NIST IR Mapping & Risk Assessment</h3>
-          <p class="text-white/80">Mapping security controls to NIST frameworks and conducting risk assessments.</p>
+          <p class="text-white/80">Mapped security controls to NIST frameworks and conducted risk assessments.</p>
           <p class="text-xs text-white/60 mt-4 group-hover:text-white transition">
-            → View details on GitHub
+            → View mapping and assessment on GitHub
           </p>
         </div>
       </a>
