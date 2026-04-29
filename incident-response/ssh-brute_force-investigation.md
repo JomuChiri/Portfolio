@@ -1,11 +1,13 @@
 # SSH Brute-Force Attack Investigation (Splunk BOTS v3)
 
 ## Overview
+
 This investigation analyzes SSH authentication activity in the Splunk BOTS v3 dataset to identify brute-force attempts and determine whether the target host was compromised.
 
 ---
 
 ## Objective
+
 - Identify brute-force login behavior  
 - Determine attacking source IP(s)  
 - Assess whether compromise occurred  
@@ -67,7 +69,7 @@ index=botsv3 host="mars.i-08e52f8b5a034012d" "Invalid user"
   - ubnt  
   - test  
 
-This behavior is consistent with automated brute-force or credential-guessing activity.
+This behavior is consistent with automated brute-force activity.
 
 ---
 
@@ -121,7 +123,7 @@ index=botsv3 host="mars.i-08e52f8b5a034012d"
 
 ![IP Activity Review](../images/ip_activity.png)
 
-Only failed authentication attempts were observed. No evidence of successful login or persistence was found.
+Only failed authentication attempts were observed. No evidence of compromise was found.
 
 ---
 
@@ -137,14 +139,14 @@ Only failed authentication attempts were observed. No evidence of successful log
 
 The activity against mars.i-08e52f8b5a034012d is consistent with a brute-force SSH attack originating from 167.114.13.150.
 
-Despite multiple rapid login attempts, there is no evidence of successful compromise based on the available logs.
+Despite multiple rapid login attempts, there is no evidence of successful compromise.
 
 ---
 
 ## Recommendations
 
-- Block traffic from 167.114.13.150  
-- Configure SIEM alerts for repeated SSH login failures  
+- Block or rate-limit traffic from 167.114.13.150  
+- Configure alerts for repeated SSH login failures  
 - Enforce key-based SSH authentication  
 - Implement multi-factor authentication (MFA)  
 - Disable or monitor common/default usernames  
@@ -157,4 +159,4 @@ Despite multiple rapid login attempts, there is no evidence of successful compro
 - Log analysis and correlation  
 - Field extraction using regex  
 - Threat detection and validation  
-- Evidence-based decision making  
+- Evidence-based analysis  
