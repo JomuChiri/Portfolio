@@ -145,18 +145,21 @@ Despite multiple rapid login attempts, there is no evidence of successful compro
 
 ## Recommendations
 
-- Block or rate-limit traffic from 167.114.13.150  
-- Configure alerts for repeated SSH login failures  
-- Enforce key-based SSH authentication  
-- Implement multi-factor authentication (MFA)  
-- Disable or monitor common/default usernames  
+- **Block or rate‑limit suspicious IPs** (in this case 167.114.13.150) to reduce brute‑force attempts.  
+- **Configure SIEM alerts** for repeated SSH login failures to enable rapid detection and response.  
+- **Enforce key‑based SSH authentication** to eliminate password‑based brute‑force risk.  
+- **Implement multi‑factor authentication (MFA)** for SSH via PAM with TOTP or hardware tokens, adding a second layer of defense.  
+- **Disable or monitor default/common usernames** (e.g., admin, root, test) to reduce attacker success rates.  
+- **Regularly review SSH logs and network flows** to validate resilience and detect anomalies.  
+- **Apply centralized logging and correlation** across hosts to spot distributed brute‑force campaigns.  
+- **Conduct periodic configuration audits** to ensure SSH settings remain aligned with best practices.  
 
 ---
 
 ## Skills Demonstrated
 
-- SIEM investigation (Splunk)  
-- Log analysis and correlation  
-- Field extraction using regex  
-- Threat detection and validation  
-- Evidence-based analysis  
+- SIEM investigation (Splunk): Detected and validated brute‑force activity using custom queries.  
+- Log analysis & correlation: Triaged authentication events and correlated across sources to confirm attack         patterns.  
+- Regex field extraction: Built custom extraction rules to parse SSH logs for usernames and IPs. 
+- Threat detection & validation: Distinguished between failed brute‑force attempts and potential compromise.  
+- Evidence‑based analysis: Produced timeline and recommendations backed by log evidence. 
