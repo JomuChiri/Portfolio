@@ -2,7 +2,7 @@
 SOC + GRC Portfolio
 
 This repository hosts my cybersecurity portfolio site, published via GitHub Pages:  
-👉 [View the live site](https://jomuchiri.github.io/Portfolio)
+🟢[View the live site](https://jomuchiri.github.io/Portfolio)
 
 ## Contents
 - `index.html` — main recruiter-facing homepage
